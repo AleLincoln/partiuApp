@@ -1,6 +1,7 @@
 import { ReactNode } from "react"
 import styled from "styled-components"
 import Navbar from "../components/Navbar"
+import { useFormik } from 'formik'
 
 const Form = styled.form`
 
@@ -111,41 +112,47 @@ const Form = styled.form`
 function NewPlace() {
 
 
+	const formik = useFormik({
+		initialValues:{
+			name:'',
+			description:'',
+			address:''
+		},
+		onSubmit: values => {
+			console.log(values)
+		}
+	})
 
-    function handleChange(event: React.FormEvent<HTMLInputElement>){
-        console.log(event.currentTarget.value)
-    }
+	return <div>
 
-    return <div>
-        
 
-        <Form>
-            <h3>
-                Novo local
+		<Form onSubmit={formik.handleSubmit}>
+			<h3>
+				Novo local
             </h3>
-            <p>
-                Nos ajude a emcontrar novos lugares para brasileiros se sentirem em casa
+			<p>
+				Nos ajude a emcontrar novos lugares para brasileiros se sentirem em casa
             </p>
-            <label htmlFor='placeName'>
-                
-                    <input type='text' name='name' placeholder='Local' onChange={handleChange}></input>
-            </label>
-            <label htmlFor='placeName'>
-                
-                        <input type='text' name='description' placeholder='Descrição' onChange={handleChange}></input>
-            </label>
-            <label htmlFor='placeName'>
-                        <input type='text' name='address' placeholder='Endereço' onChange={handleChange}></input>
-            </label>
+			<label htmlFor='placeName'>
 
-            <input type='submit' value='Enviar'/>
+				<input type='text' name='name' placeholder='Local' onChange={formik.handleChange}></input>
+			</label>
+			<label htmlFor='placeName'>
+
+				<input type='text' name='description' placeholder='Descrição' onChange={formik.handleChange}></input>
+			</label>
+			<label htmlFor='placeName'>
+				<input type='text' name='address' placeholder='Endereço' onChange={formik.handleChange}></input>
+			</label>
+
+			<input type='submit' value='Enviar' />
 
 
-        </Form>
+		</Form>
 
-        <Navbar />
+		<Navbar />
 
-    </div>
+	</div>
 
 
 }

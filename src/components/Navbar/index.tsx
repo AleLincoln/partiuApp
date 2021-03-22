@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { IoHome, IoMenu} from 'react-icons/io5'
 import {BiPlusMedical} from 'react-icons/bi'
-import db from '../../Data/db.json'
+import db from '../../Data/inicial_db.json'
 
 import { useState } from 'react'
 import {Link} from 'react-router-dom'
@@ -28,7 +28,7 @@ const Nav = styled.nav`
 
         & .navLinks{
             font-size:1.5em;
-            color:#fff;
+            color:#000;
             cursor:pointer;
         }
     }
@@ -36,6 +36,9 @@ const Nav = styled.nav`
 `
 
 const CategoriesDiv = styled.div`
+    position:fixed;
+    top:0;
+
     height:8em;
     width:10em;
     padding:1.5em;
@@ -51,10 +54,12 @@ const CategoriesDiv = styled.div`
     font-weight:600;
     line-height:1.5em;
 
+    z-index:99;
+
 
     & a{
         text-decoration:none;
-        color:#fff;
+        color:#000;
     }
 `
 
@@ -63,6 +68,8 @@ const CategoriesDiv = styled.div`
 export default function Navbar() {
 
     const [showMenu, SetShowMenu] = useState('-15em')
+
+    
 
 
     function toggleMenu(){
@@ -78,7 +85,7 @@ function CategoriesMenu(){
     
     return <CategoriesDiv style={{marginLeft:showMenu}}>
 
-            {db.categories.map((categorie) => <Link to={`/map?categorie=${categorie.id}`}>{categorie.title}</Link>)}
+            {db.categories.map((categorie) => <Link to={`/map?categorie=${categorie.id}`} onClick={toggleMenu}>{categorie.title}</Link>)}
 
 
     
