@@ -1,53 +1,100 @@
 {
-    "categories":[
-        {
-            "id":1,
-            "title": "Documentação",
-            "places":[
-                {
-                    "name":"Consulado Geral do Brasil",
-                    "description":"O lugar onde todo brasileiro já passou perrengue",
-                    "address":"Av. da França 20, 4050-275 Porto, Portugal",
-                    "position":[41.1280107,-8.6270636]
-                },
-                {
-                    "name":"SEF - Serviço de Estrangeiros e Fronteiras",
-                    "description":"O lugar que você precisa conhecer para se legalizar no Porto",
-                    "address":"Av. da França 316, 4050-276 Porto, Portugal",
-                    "position":[41.161425699999995,-8.6203256]
-                }
-            ]
-        },
-        {
-            "id":2,
-            "title": "Comer e beber",
-            "places":[
-                {
-                    "name":"Salve Simpatia Porto",
-                    "description":"O Salve é o clássico botequim do Rio de Janeiro, que faz uma viagem pela gastronomia popular brasileira, além de releituras de pratos portugueses.",
-                    "address":"Rua da Picaria 89, 4050-478 Porto, Portugal",
-                    "position":[41.1496087,-8.6130478]
-                },
-                {
-                    "name":"Momentu's - Brazilian Food",
-                    "description":"Um pedacinho do Brasil no Porto.",
-                    "address":"Rua da Torrinha 232, 4050-610 Porto, Portugal",
-                    "position":[41.1528313,-8.6220554]
-                },
-                {
-                    "name":"Santa Larica",
-                    "description":"Nosso coração é luso-brasileiro, por isso, temos 10 sabores inspirados nos melhores pratos da culinária dos dois países.",
-                    "address":"R. do Conselheiro Veloso da Cruz 94, 4400-094 Vila Nova de Gaia, Portugal",
-                    "position":[41.1297514,-8.6184175]
-                },
-                {
-                    "name":"O Benedito",
-                    "description":"O seu lugar no Porto desde um bom pequeno-almoço até um animado happy hour. Drinks, petiscos, snacks, musica ambiente e muito mais. Confira!",
-                    "address":"Rua de Costa Cabral 587, 4200-223 Porto, Portugal",
-                    "position":[41.1660343,-8.5979263]
-                }
-            ]
-        }
-        
-    ]
+  "categorias": [
+    {
+      "id": 1,
+      "title": "Documentação"
+    },
+    {
+      "id": 2,
+      "title": "Comer e beber"
+    }
+  ],
+  "places": [
+    {
+      "id": 1,
+      "categoriaId": 1,
+      "name": "Consulado Geral do Brasil",
+      "description": "O lugar onde todo brasileiro já passou perrengue",
+      "address": "Av. da França 20, 4050-275 Porto, Portugal",
+      "position": [
+        41.1591367,
+        -8.6286159
+      ]
+    },
+    {
+      "id": 2,
+      "categoriaId": 1,
+      "name": "SEF - Serviço de Estrangeiros e Fronteiras",
+      "description": "O lugar que você precisa conhecer para se legalizar no Porto",
+      "address": "Av. da França 316, 4050-276 Porto, Portugal",
+      "position": [
+        41.161425699999995,
+        -8.6203256
+      ]
+    },
+    {
+      "id": 3,
+      "categoriaId": 2,
+      "name": "Salve Simpatia Porto",
+      "description": "O Salve é o clássico botequim do Rio de Janeiro, que faz uma viagem pela gastronomia popular brasileira, além de releituras de pratos portugueses.",
+      "address": "Rua da Picaria 89, 4050-478 Porto, Portugal",
+      "position": [
+        41.1496087,
+        -8.6130478
+      ]
+    },
+    {
+      "id": 4,
+      "categoriaId": 2,
+      "name": "Momentu's - Brazilian Food",
+      "description": "Um pedacinho do Brasil no Porto.",
+      "address": "Rua da Torrinha 232, 4050-610 Porto, Portugal",
+      "position": [
+        41.1528313,
+        -8.6220554
+      ]
+    },
+    {
+      "id": 5,
+      "categoriaId": 2,
+      "name": "Santa Larica",
+      "description": "Nosso coração é luso-brasileiro, por isso, temos 10 sabores inspirados nos melhores pratos da culinária dos dois países.",
+      "address": "R. do Conselheiro Veloso da Cruz 94, 4400-094 Vila Nova de Gaia, Portugal",
+      "position": [
+        41.1297514,
+        -8.6184175
+      ]
+    },
+    {
+      "id": 6,
+      "categoriaId": 2,
+      "name": "O Benedito",
+      "description": "O seu lugar no Porto desde um bom pequeno-almoço até um animado happy hour. Drinks, petiscos, snacks, musica ambiente e muito mais. Confira!",
+      "address": "Rua de Costa Cabral 587, 4200-223 Porto, Portugal",
+      "position": [
+        41.1660343,
+        -8.5979263
+      ]
+    }
+  ],
+  "newPlaces": [
+    {
+      "categoria": "Documentação",
+      "name": "degegeg",
+      "description": "egegege",
+      "address": "egegeegeg",
+      "location": [],
+      "categoriaId": 1,
+      "id": 3
+    },
+    {
+      "categoria": "Documentação",
+      "name": "eege",
+      "description": "aadada",
+      "address": "yjyjyjy",
+      "location": [],
+      "categoriaId": 1,
+      "id": 4
+    }
+  ]
 }

@@ -1,5 +1,4 @@
 
-import db from '../Data/inicial_db.json'
 import Navbar from '../components/Navbar'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
@@ -8,12 +7,12 @@ import {FcGoogle} from 'react-icons/fc'
 import { useLocation } from 'react-router-dom'
 import placesRepository from '../repositories/places'
 import { useEffect, useState } from 'react'
-import Loader from '../components/Loader'
 
 
 
 
 function MyMap() {
+
 
     const [dadosIniciais, setDadosIniciais] = useState([])
 
@@ -22,12 +21,15 @@ function MyMap() {
     const route = useLocation().search.replace('?categorie=', '')
 
     useEffect(() => {
-        placesRepository.getPlaces().then((res) => setDadosIniciais(res))
+        placesRepository.getCategories().then((res) => setDadosIniciais([
+            ...res,
+        ]))
 
     },[])
 
 
-    const dbPlaces = db.categories.find((item) => item.id === Number(route))
+
+    const dbPlaces = dadosIniciais.length > 0 && dadosIniciais.find((item) => item.id === Number(route))
 
 
 
@@ -37,7 +39,9 @@ function MyMap() {
             dadosIniciais.length === 0 && <div></div>
         }
 
-        {
+        { dadosIniciais.length > 0 &&
+
+            
 
         <MapContainer style={{height:'90vh', width:'100%', zIndex:0}} center={[41.15083,-8.6375336]} zoom={13} scrollWheelZoom={true}>
             <TileLayer
@@ -49,8 +53,6 @@ function MyMap() {
                 dbPlaces?.places.map((place) => {
                     const [lag, log] = place.position
                     const googleSearch = place.address.split(' ').join('+')
-
-                    console.log(googleSearch)
 
                     return <Marker position={[lag, log]}>
                                 <Popup>

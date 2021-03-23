@@ -1,8 +1,8 @@
-import PATH from '../config'
+import myPaths from '../config'
 
-async function getPlaces(){
+async function getCategories(){
 
-    return fetch(PATH).then( async (res) =>{
+    return fetch(myPaths.ALL_CATEGORIES_AND_PLACES_PATH).then( async (res) =>{
 
         if(res.ok){
             
@@ -19,8 +19,35 @@ async function getPlaces(){
 }
 
 
+async function setNewPlace(placeObject){
+
+    return fetch(myPaths.ALL_PLACES_PATH , {
+        method:'POST',
+        headers:{
+            'Content-type':'application/json'
+        },
+        body: JSON.stringify(placeObject)
+    })
+        .then( async (res) =>{
+
+            if(res.ok){
+                
+                const resp = await res.json()
+    
+                return resp
+            }
+
+            throw new Error('Não foi possível ter uma resposta :=(')
+
+        })
+
+
+}
+
+
 const placesRepository = {
-    getPlaces
+    getCategories,
+    setNewPlace
 }
 
 

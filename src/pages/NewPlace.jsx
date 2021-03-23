@@ -1,7 +1,8 @@
-import { ReactNode } from "react"
 import styled from "styled-components"
 import Navbar from "../components/Navbar"
 import { useFormik } from 'formik'
+import placesRepository from "../repositories/places"
+import { useEffect, useState } from "react"
 
 const Form = styled.form`
 
@@ -111,18 +112,41 @@ const Form = styled.form`
 
 function NewPlace() {
 
+	const [categories, setCategories] = useState([])
+	
 
+	useEffect(()=>{
+
+		placesRepository.getCategories().then((res) => setCategories(res))
+
+	}, [])
+
+	
+	
 	const formik = useFormik({
 		initialValues:{
+			categoria:'',
 			name:'',
 			description:'',
-			address:''
+			address:'',
+			location:[]
 		},
 		onSubmit: values => {
-			console.log(values)
+
+			const categoriaEscolhida = categories.find((item) => item.title === values.categoria)
+
+			const res = {
+				...values,
+				categoriaId:categoriaEscolhida.id
+			}
+
+			placesRepository.setNewPlace(res)
+
+
 		}
 	})
 
+	
 	return <div>
 
 
@@ -133,15 +157,26 @@ function NewPlace() {
 			<p>
 				Nos ajude a emcontrar novos lugares para brasileiros se sentirem em casa
             </p>
+			<label htmlFor='categoria'>
+				<input list='dataList' name='categoria' placeholder='Categoria' onChange={formik.handleChange} />
+				
+				<datalist id='dataList'>
+					{categories.map((categorie) => <option value={categorie.title} />)}
+				</datalist>
+
+			</label>
+
 			<label htmlFor='placeName'>
 
 				<input type='text' name='name' placeholder='Local' onChange={formik.handleChange}></input>
 			</label>
-			<label htmlFor='placeName'>
 
-				<input type='text' name='description' placeholder='Descrição' onChange={formik.handleChange}></input>
+			<label htmlFor='description'>
+
+				<textarea type='text' name='description' placeholder='Descrição' onChange={formik.handleChange}></textarea>
 			</label>
-			<label htmlFor='placeName'>
+
+			<label htmlFor='address'>
 				<input type='text' name='address' placeholder='Endereço' onChange={formik.handleChange}></input>
 			</label>
 

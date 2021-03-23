@@ -1,4 +1,13 @@
-const PATH = window.location.hostname.includes('localhost') ? 'http://localhost:8080/categories' : 'https://learnflixbackend.herokuapp.com/categories'
+const PATH =  window.location.hostname.includes('localhost') ? 'http://localhost:8080' : 'https://learnflixbackend.herokuapp.com'
 
+const ALL_CATEGORIES_AND_PLACES_PATH = `${PATH}/categorias?_embed=places`
 
-export default PATH
+const ALL_PLACES_PATH = `${PATH}/newPlaces`
+
+const myPaths = {
+    PATH,
+    ALL_CATEGORIES_AND_PLACES_PATH,
+    ALL_PLACES_PATH
+}
+
+export default myPaths
