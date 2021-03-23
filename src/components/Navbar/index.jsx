@@ -13,13 +13,13 @@ import {Link} from 'react-router-dom'
 
 
 const Nav = styled.nav`
-    
     position:fixed;
     bottom:0;
     left:0;
     width:100%;
-    background-color:#fedd00;
+    background-color:#000;
     padding:1.5em;
+    border-top: 3px solid #fff;
 
     & div{
         display:flex;
@@ -28,7 +28,7 @@ const Nav = styled.nav`
 
         & .navLinks{
             font-size:1.5em;
-            color:#000;
+            color:#fff;
             cursor:pointer;
         }
     }
@@ -47,6 +47,7 @@ const CategoriesDiv = styled.div`
     flex-direction:column;
 
     background-color:#fedd00;
+    border:solid 2px #000;
     
     
     font-family: Helvetica, sans-serif;

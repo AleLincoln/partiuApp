@@ -78,23 +78,6 @@
     }
   ],
   "newPlaces": [
-    {
-      "categoria": "Documentação",
-      "name": "degegeg",
-      "description": "egegege",
-      "address": "egegeegeg",
-      "location": [],
-      "categoriaId": 1,
-      "id": 3
-    },
-    {
-      "categoria": "Documentação",
-      "name": "eege",
-      "description": "aadada",
-      "address": "yjyjyjy",
-      "location": [],
-      "categoriaId": 1,
-      "id": 4
-    }
+
   ]
 }
