@@ -1,12 +1,12 @@
-import styled from 'styled-components'
-import { IoHome, IoMenu} from 'react-icons/io5'
-import {BiPlusMedical} from 'react-icons/bi'
+import styled, { keyframes } from 'styled-components'
+import { IoHome, IoMenu } from 'react-icons/io5'
+import { BiPlusMedical } from 'react-icons/bi'
 import db from '../../Data/inicial_db.json'
 
 import { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-
+import { slideInLeft } from 'react-animations'
 
 
 
@@ -35,9 +35,12 @@ const Nav = styled.nav`
 
 `
 
+const slideInLeftAnimation = keyframes`${slideInLeft}`
+
+
 const CategoriesDiv = styled.div`
     position:fixed;
-    top:0;
+    top:5px;
 
     height:8em;
     width:10em;
@@ -46,17 +49,17 @@ const CategoriesDiv = styled.div`
     display:flex;
     flex-direction:column;
 
-    background-color:#fedd00;
+    background-color:#ffffff;
     border:solid 2px #000;
-    
-    
+
     font-family: Helvetica, sans-serif;
     font-size:1.5em;
     font-weight:600;
     line-height:1.5em;
 
-    z-index:99;
+    animation:1s ${slideInLeftAnimation};
 
+    z-index:99;
 
     & a{
         text-decoration:none;
@@ -70,48 +73,46 @@ export default function Navbar() {
 
     const [showMenu, SetShowMenu] = useState('-15em')
 
-    
 
-
-    function toggleMenu(){
+    function toggleMenu() {
         SetShowMenu(
-            showMenu === '-15em'? '0':'-15em'
-        )
+            showMenu === '-15em' ? '5' : '-15em'
+        )  
     }
 
-    
-function CategoriesMenu(){
+
+    function CategoriesMenu() {
 
 
-    
-    return <CategoriesDiv style={{marginLeft:showMenu}}>
+
+        return <CategoriesDiv style={{ marginLeft: showMenu }}>
 
             {db.categories.map((categorie) => <Link to={`/map?categorie=${categorie.id}`} onClick={toggleMenu}>{categorie.title}</Link>)}
 
+            {/*<Link to={`/map?categorie=todas`}>Todas</Link> */}
 
-    
         </CategoriesDiv>
-}
-
-    
+    }
 
 
-    return  <>
 
-    <CategoriesMenu />
-    
-    <Nav>
+
+    return <>
+
+        <CategoriesMenu />
+
+        <Nav>
             <div>
 
-            <Link to="/"><div className='navLinks'><IoHome /></div></Link>
-            <a onClick={toggleMenu}><div className='navLinks'><IoMenu /></div></a>
-            <Link to="/newplace"><div className='navLinks'><BiPlusMedical /></div></Link>
+                <Link to="/"><div className='navLinks'><IoHome /></div></Link>
+                <a onClick={toggleMenu}><div className='navLinks'><IoMenu /></div></a>
+                <Link to="/newplace"><div className='navLinks'><BiPlusMedical /></div></Link>
 
             </div>
-    </Nav>
-    
-    
+        </Nav>
+
+
     </>
-    
-    
+
+
 }
