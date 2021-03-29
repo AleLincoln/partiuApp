@@ -155,7 +155,7 @@ function NewPlace() {
 				Novo local
             </h3>
 			<p>
-				Nos ajude a emcontrar novos lugares para brasileiros se sentirem em casa
+				Nos ajude a encontrar novos lugares para brasileiros se sentirem em casa
             </p>
 			<label htmlFor='categoria'>
 				<input type='text' list='dataList' name='categoria' placeholder='Categoria' onChange={formik.handleChange} />
