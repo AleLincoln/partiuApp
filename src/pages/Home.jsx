@@ -16,13 +16,14 @@ const Main = styled.main`
     color:#fff;
 
     & h1{
-      font-size:4em;
+      font-size:4sem;
     }
     & p{
       font-size:1.5em;
     }
 
     & img{
+      height:50vh;
       border-radius:3px;
     }
 

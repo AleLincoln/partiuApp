@@ -15,7 +15,6 @@ import { useEffect, useState } from 'react'
 
 function MyMap() {
 
-
     const [dadosIniciais, setDadosIniciais] = useState([])
 
 
@@ -30,7 +29,7 @@ function MyMap() {
     }, [])
 
 
-    const allPlaces = dadosIniciais.length > 0 && dadosIniciais.map((item) => item.places).reduce((acc, cv) => acc.concat(cv))
+ //   const allPlaces = dadosIniciais.length > 0 && dadosIniciais.map((item) => item.places).reduce((acc, cv) => acc.concat(cv))
 
     const dbPlaces = dadosIniciais.length > 0 && dadosIniciais.find((item) => item.id === Number(route)).places
 

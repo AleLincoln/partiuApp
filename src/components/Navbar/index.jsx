@@ -105,7 +105,7 @@ export default function Navbar() {
             <div>
 
                 <Link to="/"><div className='navLinks'><IoHome /></div></Link>
-                <a onClick={toggleMenu}><div className='navLinks'><IoMenu /></div></a>
+                <a href onClick={toggleMenu}><div className='navLinks'><IoMenu /></div></a>
                 <Link to="/newplace"><div className='navLinks'><BiPlusMedical /></div></Link>
 
             </div>
