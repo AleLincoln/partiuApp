@@ -25,6 +25,7 @@ const Nav = styled.nav`
         display:flex;
         align-items:center;
         justify-content:space-evenly;
+        margin-right:1.5em;
 
         & .navLinks{
             font-size:1.5em;

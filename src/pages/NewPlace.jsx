@@ -158,7 +158,7 @@ function NewPlace() {
 				Nos ajude a emcontrar novos lugares para brasileiros se sentirem em casa
             </p>
 			<label htmlFor='categoria'>
-				<input list='dataList' name='categoria' placeholder='Categoria' onChange={formik.handleChange} />
+				<input type='text' list='dataList' name='categoria' placeholder='Categoria' onChange={formik.handleChange} />
 				
 				<datalist id='dataList'>
 					{categories.map((categorie) => <option value={categorie.title} />)}
